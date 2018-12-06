@@ -1,0 +1,5 @@
+"""To copy from the local folder to vm compute engine.To copy folder we need to zip it."""
+sudo gcloud compute scp localdirectory_path/parameters.zip  test-fluent-cloud:/home/md_mahabub_alam --zone us-central1-b
+
+"""Cloned"""
+wget github_repo_link
