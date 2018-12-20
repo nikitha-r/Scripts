@@ -48,3 +48,20 @@ class SetApi(Resource):
         except Exception, e:
             logging.info('Failed to set the age. ')
             raise e
+
+            
+ class CreateApi(Resource):
+    """API implementation to ingest the record."""
+
+    def get(self):
+        return {'GET': "Api"}
+
+    def post(self):
+        """Handle 'POST'request """
+        try:
+            json_result = request.get_json(force=True)
+            jsonified_msg = create_record(json_result)
+            return jsonified_msg
+        except Exception, e:
+            logging.info('Failed to create the record.')
+            raise e
