@@ -1,28 +1,4 @@
-# import pandas as pd
-# import sqlalchemy
-# from sqlalchemy import create_engine
 
-# col_list = ["body_mass_index",
-# 			"body_weight",	
-# 			"diastolic_blood_pressure",
-# 			"fasting_serum_glucose",
-# 			"insulin_sensitivity",
-# 			"serum_hba1c",
-# 			"serum_total_cholesterol",
-# 			"serum_triglycerides",	
-# 			"systolic_blood_pressure",	
-# 			"time",
-# 			"waist_circumference",
-# 			"gender",
-# 			"age",
-# 			"Physiology_tag",
-# 			"Lifestyle_tag",
-# 			"height"]
-# df = pd.read_csv('/Users/nr012/Desktop/example.csv', names=col_list)
-# print df
-# engine = sqlalchemy.create_engine('mysql+pymysql://dev_user:hUq@Ejc22w1k@35.188.128.114') 
-# engine.execute("USE archetyping_db") #
-# df.to_sql('simulation', con=engine, if_exists='append', index=False)
 
 
 import os
