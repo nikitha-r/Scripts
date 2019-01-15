@@ -1,0 +1,22 @@
+git reset --soft HEAD~ (To Revoke the commit)
+git fetch && git checkout add_test_flex (To move all the changes and current changes to new branch)
+git reset HEAD(Unstage the commits)
+
+nothing to commit, working tree clean
+(tp) US_C02W62ZZHTD6:optimization_service nr012$ git pull
+Enter passphrase for key '/Users/nr012/.ssh/id_rsa': 
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> add_test_flex
+
+(tp) US_C02W62ZZHTD6:opt_service nr012$ git branch
+* add_test_flex
+  flex-app
+(tp) US_C02W62ZZHTD6:optimization_service nr012$  git branch --set-upstream-to=origin/flex-app add_test_flex
+Branch 'add_test_flex' set up to track remote branch 'flex-app' from 'origin'.
