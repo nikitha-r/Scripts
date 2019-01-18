@@ -20,3 +20,8 @@ If you wish to set tracking information for this branch you can do so with:
   flex-app
 (tp) US_C02W62ZZHTD6:optimization_service nr012$  git branch --set-upstream-to=origin/flex-app add_test_flex
 Branch 'add_test_flex' set up to track remote branch 'flex-app' from 'origin'.
+
+
+Pull from one branch to new branch.
+git pull origin branch_name
+git push origin new_branch
