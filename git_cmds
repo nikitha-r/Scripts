@@ -13,7 +13,7 @@ See git-pull(1) for details.
 
 If you wish to set tracking information for this branch you can do so with:
 
-    git branch --set-upstream-to=origin/<branch> add_test_flex
+    git branch --set-upstream-to=origin/<UPdat> add_test_flex
 
 (tp) US_C02W62ZZHTD6:opt_service nr012$ git branch
 * add_test_flex
@@ -22,6 +22,22 @@ If you wish to set tracking information for this branch you can do so with:
 Branch 'add_test_flex' set up to track remote branch 'flex-app' from 'origin'.
 
 
+
+
+To move all the changes from old and add current changes to new branch
+git fetch && git checkout newbranchname
+
+To Revoke the commit
+git reset --soft HEAD~
+
+
 Pull from one branch to new branch.
 git pull origin branch_name
 git push origin new_branch
+
+
+
+
+Checking out from dev branch to a new branch
+git checkout -b newbranchname dev
+git push --set-upstream origin flexapi
