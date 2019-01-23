@@ -41,3 +41,7 @@ git push origin new_branch
 Checking out from dev branch to a new branch
 git checkout -b newbranchname dev
 git push --set-upstream origin flexapi
+
+Deleting all pyc files.
+find . -name '*.pyc' -delete
+
