@@ -52,33 +52,7 @@ else:
     
     
     
-    
-
-
-1 of 9
-Script for dumping to database
-Inbox
-x
-
-Md Mahabub Alam (US - ADVS) <md.mahabub.alam@pwc.com>
-Attachments
-Tue, Dec 4, 2018, 4:13 PM
-to me, Rakesh
-
-Hi Nikitha, 
-Here is the script which I am using to dump to database.
-change accordingly to fit to your requirements. 
-
-
-Md Mahabub Alam
-PwC | Associate
-Bangalore
-PricewaterhouseCoopers Service Delivery Center (Bangalore) Private Limited
-pwc.com
-      
-
-Attachments area
-Got it, thanks!Thanks, I'll take a look.Thanks a lot.
+  
 
 import os
 import json
