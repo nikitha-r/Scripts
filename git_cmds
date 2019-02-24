@@ -26,6 +26,8 @@ Branch 'add_test_flex' set up to track remote branch 'flex-app' from 'origin'.
 
 To move all the changes from old and add current changes to new branch
 git fetch && git checkout newbranchname
+git fetch && git checkout -b newbranchname
+
 
 To Revoke the commit
 git reset --soft HEAD~
