@@ -47,3 +47,20 @@ git push --set-upstream origin flexapi
 Deleting all pyc files.
 find . -name '*.pyc' -delete
 
+REMOTES
+-----------
+git remote -v (To see list of remotes which you have added.)
+    origin	https://github.com/nikitha-r (fetch)
+    origin	https://github.com/nikitha-r (push)
+git remote rm origin (To remove remotes which you have added.)
+git remote add origin https://github.com/nikitha-r/mock_fake_calls.git(Create a repo first and you shall get the urls.)
+git add .
+git commit -m "Msg"
+git push --set-upstream origin master
+
+
+
+
+
+
+
