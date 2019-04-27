@@ -1,0 +1,27 @@
+import json
+
+from flask import Flask as OriginaFlask, make_response, jsonify
+from webargs import ValidationError
+from werkzeug.exceptions import UnprocessableEntity
+
+
+class PatchedFlask(OriginaFlask):
+    """
+    This is a custom implementation to handle the exceptions thrown by the
+    webargs request parser.
+    Standard flask is unable to process when a validation error is thrown.
+    Hence the method handle_user_exception is over ridden to handle the
+    validation error.
+    """
+    def __init__(self, import_name):
+        super(PatchedFlask, self).__init__(import_name)
+
+    def handle_user_exception(self, e):
+        if type(e) is UnprocessableEntity and type(e.exc) is ValidationError:
+            """
+            If the above condition is true then the exception is thrown by 
+            marshmallow/webargs during request parsing
+            """
+            return make_response(jsonify(e.data['messages']), 400)
+        else:
+            return super(PatchedFlask, self).handle_user_exception(e)
