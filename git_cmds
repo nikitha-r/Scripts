@@ -59,6 +59,11 @@ git commit -m "Msg"
 git push --set-upstream origin master
 
 
+Create new branch from old commit(old change)
+-------------------------------------------------------
+git checkout -b newbranchname commithashcode
+git checkout -b justin a9c146a09505837ec03b
+
 
 
 
