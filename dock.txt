@@ -86,3 +86,4 @@ delete
 ------------------
 docker rmi image id
 
+
