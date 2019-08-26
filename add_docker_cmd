@@ -31,7 +31,7 @@ Docker commands
 
    docker-compose down(To spin down all the containers)
 
-   docker-compose build(To build all the containers)
+   docker-compose build(To build all the containers. If we have done code changes)
 
    docker-compose ps(To list all the containers)
 
@@ -53,3 +53,15 @@ Docker commands
     commands:
         python main.py
     used to run the commands in container.
+
+7. Extra commands
+
+docker-compose up fsia-paragraph-extraction fsia-pdf-image-conversion fsia-table-text-extraction
+docker-compose restart fsia-paragraph-extraction fsia-pdf-image-conversion fsia-table-text-extraction
+docker-compose up -d rabbitmq
+docker-compose ps
+docker-compose down
+docker-compose logs -f
+docker-compose logs -f fsia-pdf-image-conversion
+docker inspect runprojects_rabbitmq_1
+IPAddress
