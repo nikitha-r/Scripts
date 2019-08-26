@@ -1,0 +1,55 @@
+Docker commands
+-------------------------------
+
+1. Always rename docker compose yaml file docker-compose.yml
+2.   fsia-pdf-image-conversion:
+    # image: auaeazsffinstcr001.azurecr.io/fsia-pdf-image-conversion:dev-latest
+    build:
+      context: ./fsia-pdf-image-conversion
+      dockerfile: ./Dockerfile
+    volumes:
+     - ./fsia-pdf-image-conversion:/usr/src/app
+
+    """
+    Instead of building an image: auaeazsffinstcr001.azurecr.io/fsia-pdf-image-conversion:dev-latest(Commented)
+    I am building the physical system folder itself(Local folder) using
+        build:
+            context: ./fsia-pdf-image-conversion
+    And asking to pick the docker file from the physical system folder itself using
+        dockerfile: ./Dockerfile
+
+
+    Volumes are which happens at the container level. Copies the physical
+    system folder(context: ./fsia-pdf-image-conversion) to the /usr/src/app folder of container.
+    """
+
+3. Ctrl+k in pycharm git level
+4. Docker commands
+   -------------------
+
+   docker-compose up -d(d for deamon. To spin up all the containers)
+
+   docker-compose down(To spin down all the containers)
+
+   docker-compose build(To build all the containers)
+
+   docker-compose ps(To list all the containers)
+
+   docker-compose exec service_name(container_name) bash
+
+   docker-compose logs -f (container_name optional)
+
+   docker-compose restart -d service_name(container_name)
+
+   docker inspect service_name(container_name) - To find IP address.
+
+5. Volumes used to bind source(local folder) target(container folder) type(used to bind)
+    volumes:
+      - type: bind
+        source: /tmp/rabbitmq
+        target: /var/lib/rabbitmq
+
+6. Additional commands in docker compose file.
+    commands:
+        python main.py
+    used to run the commands in container.
