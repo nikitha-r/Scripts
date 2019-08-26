@@ -1,0 +1,88 @@
+DOCKER COMMANDS
+
+1. Create the registry
+-----------------------------
+   # create registry called nikitharegistry in container registry of azzure
+
+
+2. To build the image
+-----------------------------
+ $ docker build -t nikitha.azurecr.io/fsia-pdf-image-conversion:nikitha .
+     # image name - nikitha.azurecr.io/fsia-pdf-image-conversion
+     # nikitha is the tag
+
+3. To list the docker images
+------------------------------
+  $ docker images
+
+
+4. Run yaml files
+------------------------------
+    $ docker-compose -f dockcompose.yaml up -d
+
+5. To list all the container
+------------------------------
+    $ docker ps
+
+6. To stop or kill docker cobtainer
+-------------------------------
+    $ docker stop container_id
+
+
+Practical run
+-------------
+Run the below command inside the micro service in terminal.
+
+    $ docker build -t nikitha.azurecr.io/fsia-paragraph-extraction-v2:nikitha1 .
+
+      docker build -t nikitha.azurecr.io/sendjson:nikitha1 .
+
+      docker build -t nikitha.azurecr.io/fsia-pdf-image-conversion:nikitha1 .
+
+      docker build -t nikitha.azurecr.io/testproject:nikitha1 .
+Edit
+---------------
+docker exec -it 43a554ccaef1 /bin/bash
+docker commit f2655f4c94b8 nikitha.azurecr.io/testproject:nikitha1
+docker commit << container_ID>> << new Image_name complete url >>
+
+
+Stop all the containers.
+-------------------------
+docker stop $(docker ps -aq)
+docker rm $(docker ps -a -q)
+docker ps
+
+python delete_rmq.py
+python blob_delete.py
+
+=================
+https://www.cloudamqp.com/
+docker build -t auaeazsffinstcr001.azurecr.io/fsia-pdf-image-conversion:master-latest .
+docker build -t auaeazsffinstcr001.azurecr.io/fsia-paragraph-extraction-v2:master-latest .
+docker build -t auaeazsffinstcr001.azurecr.io/fsia-table-detection:master-latest .
+docker-compose -f dockcomp.yaml up -d
+
+
+
+Copy the image folder to local
+-----------------
+docker cp container_id:/usr/src/app .
+
+
+To list the files under image
+-----------------
+docker run c9541b37021e  ls -l
+
+To find particular file
+-----------------------
+docker run c9541b37021e find / -name "main.pyc" 2>/dev/null
+
+To list all images starts from text "pdf"
+----------------------
+docker images | grep pdf
+
+delete
+------------------
+docker rmi image id
+
