@@ -1,0 +1,140 @@
+------------------------
+
+Dockerfile
+----------
+FROM python:3.7-slim
+
+# Update and upgrade
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y gcc
+RUN pip install --upgrade pip
+
+WORKDIR /usr/src/app
+
+# Prevent core dumps
+RUN echo $'* soft core 0\n* hard core 0' > /etc/security/limits.conf
+
+# Zipline utils
+COPY utils ./utils
+RUN pip install -e ./utils
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY tests ./tests
+# build will fail if utils not loaded
+run python tests/verify_all_utils_loaded_properly.rb
+
+
+# Util functions
+RUN apt-get install -y vim htop iputils-ping
+
+# Copy app over
+COPY . .
+
+# Compile and delete the python source files
+RUN python -m compileall -b .
+RUN find . -name "*.py" -type f -delete
+
+CMD [ "python", "./main.pyc" ]
+
+
+Dockerfile.opencv
+-----------------
+FROM jjanzic/docker-python3-opencv
+
+# Update and upgrade
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get install -y gcc
+
+WORKDIR /usr/src/app
+
+# Zipline utils
+COPY utils ./utils
+RUN pip install -e ./utils
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Prevent core dumps
+RUN echo $'* soft core 0\n* hard core 0' > /etc/security/limits.conf
+
+# Util functions
+RUN apt-get install -y vim htop iputils-ping
+
+# Copy app over
+COPY . .
+
+# Compile and delete the python source files
+RUN python -m compileall -b .
+RUN find . -name "*.py" -type f -delete
+
+CMD [ "python", "./main.pyc" ]
+
+Dockerfile.tensorflow.gpu
+-------------------------
+FROM tensorflow/tensorflow:latest-gpu-py3
+
+# Update and upgrade
+# there are bad nvidia custom sources from tensorflow that we need to delete
+RUN rm /etc/apt/sources.list.d/*
+RUN apt-get update --fix-missing
+RUN apt-get -y upgrade
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y gcc python-opencv python3-tk
+
+WORKDIR /usr/src/app
+
+# Prevent core dumps
+RUN echo $'* soft core 0\n* hard core 0' > /etc/security/limits.conf
+
+# Zipline utils
+COPY utils ./utils
+RUN pip install -e ./utils
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Util functions
+RUN apt-get install -y vim htop iputils-ping
+
+# Copy app over
+COPY . .
+
+# Compile and delete the python source files
+RUN python -m compileall -b .
+RUN find . -name "*.py" -type f -delete
+
+CMD [ "python", "./main.pyc" ]
+
+Tesseract
+---------
+FROM mauvilsa/tesseract-recognize:2018.12.15-ubuntu18.04-pkg
+
+# Update and upgrade
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get install -y gcc
+RUN apt-get install -y python-pip
+
+WORKDIR /usr/src/app
+
+# Zipline utils
+COPY utils ./utils
+RUN pip install -e ./utils
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Prevent core dumps
+RUN echo $'* soft core 0\n* hard core 0' > /etc/security/limits.conf
+
+# Util functions
+RUN apt-get install -y vim htop iputils-ping
+
+# Copy app over
+COPY . .
+
+CMD [ "python", "./main.py" ]
