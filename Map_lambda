@@ -1,0 +1,56 @@
+Python map() function
+map(fun, iter)
+# Code
+---------------------------------------
+def addition(n): 
+    return n + n 
+  
+# We double all numbers using map() 
+numbers = (1, 2, 3, 4) 
+result = map(addition, numbers) 
+print(list(result)) 
+---------------------------------------
+
+Python lambda (Anonymous Functions) | filter, map, reduce
+lambda arguments: expression
+# Code 1
+---------------------------------------
+def cube(y): 
+    return y*y*y; 
+  
+g = lambda x: x*x*x 
+print(g(7)) 
+  
+print(cube(5)) 
+---------------------------------------
+# Code 2
+temps=[("Argebtina", 29), ("Berlin", 36)]
+res = lambda data:(data[0], data[1]*9/5+32) #data[0]= ("Argebtina"), data[1] = 29 
+list(map(res, temps))
+
+Python Lambda with filters
+# Code 1
+---------------------------------------
+li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+filter(lambda x:(x%2!=0), li)
+[5, 7, 97, 77, 23, 73, 61]
+
+# Code 2
+----------------------------------------
+li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61, "", 34, "", 4] 
+filter(None, li)
+[5, 7, 22, 97, 54, 62, 77, 23, 73, 61, 34, 4]
+
+Python Lambda with reduce
+# Code 
+---------------------------------------
+# Python code to illustrate  
+# reduce() with lambda() 
+# to get sum of a list 
+from functools import reduce
+li = [5, 8, 10, 20, 50, 100] 
+sum = reduce((lambda x, y: x + y), li) 
+print (sum) 
+
+
+
