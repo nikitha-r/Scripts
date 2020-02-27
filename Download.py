@@ -22,3 +22,11 @@ Download Docker
 https://hub.docker.com/editions/community/docker-ce-desktop-mac/
   -> The Stable version is fully baked and tested, and comes with the latest GA release of Docker.	
   
+Download Pip3
+---------------
+brew install python will install pip3
+
+Download pip
+---------------
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo easy_install pip
