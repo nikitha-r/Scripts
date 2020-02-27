@@ -30,3 +30,8 @@ Download pip
 ---------------
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo easy_install pip
+
+
+Download Virtualenv
+------------------------------
+pip install virtualenv
