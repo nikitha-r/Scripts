@@ -15,3 +15,10 @@ git clone git@ssh.dev...
 Download Git
 ---------------
 https://sourceforge.net/projects/git-osx-installer/
+
+  
+Download Docker
+---------------
+https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+  -> The Stable version is fully baked and tested, and comes with the latest GA release of Docker.	
+  
