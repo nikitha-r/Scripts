@@ -1,0 +1,27 @@
+import glob
+import os
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
+
+
+def upload_file_meth(file_name, tgt_folder_id):
+    gauth = GoogleAuth(settings_file=file_name)
+    drive = GoogleDrive(gauth)
+    # dir_path = os.path.dirname(os.path.realpath(__file__))
+    # os.chdir(dir_path)
+    for file in glob.glob("*.pdf"):
+        with open(file, "r") as f:
+            fn = os.path.basename(f.name)
+            file_drive = drive.CreateFile({'title': fn, "parents": [{"kind": "drive#fileLink","id": tgt_folder_id}]})
+            file_drive.SetContentFile(fn)
+            file_drive.Upload()
+            print("The file: " + fn + " has been uploaded ")
+    print("All files have been uploaded"+ tgt_folder_id +".")
+
+
+if __name__=='__main__':
+    path1 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "settings_ath/settings1.yaml")
+    path2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "settings_ath/settings2.yaml")
+    upload_file_meth(path1, '11mSr32fP7vymPG0hnp_-QfJ5oxgBA4Ct')
+    upload_file_meth(path2, '1Hp5NwUrJNtJSgzdYI-NBuEEdyF71Br5w')
