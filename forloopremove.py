@@ -75,3 +75,7 @@ def fetch_system_data_centers(fetch_coordinates):
 if __name__ == '__main__':
     result_dict = fetch_system_data_centers(fetch_coordinates=True)
     print(result_dict)
+
+    
+#Expected output
+{'phont50067us.homeoffice.wal-mart.com': ['ndc', 'edc'], 'oser500970.wal-mart.com': ['cdc']}
